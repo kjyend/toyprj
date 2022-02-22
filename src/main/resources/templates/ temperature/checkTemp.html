@@ -7,6 +7,13 @@
     <title>Title</title>
 </head>
 <body>
-checkTemp
+<div class="navbar navbar-dark bg-dark">
+    <div class="container-md">
+        <a class="navbar-brand" th:onclick="|location.href='@{/}'|">Home</a>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-primary" th:onclick="|location.href='@{/logout}'|" type="submit">sign out</button>
+        </div>
+    </div>
+</div>
 </body>
 </html>
