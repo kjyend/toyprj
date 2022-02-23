@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/bootstrap.min.css}" href="../css/bootstrap.min.css" rel="stylesheet">
+    <title>Title</title>
+    <style>
+        .input-text{
+            align-items: center;
+            width: 100%;
+            max-width: 330px;
+            padding: 15px;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 100px;
+        }
+        .input-button{
+            margin-right: auto;
+        }
+        .margin-button{
+            width: 100%;
+            max-width: 330px;
+            padding: 15px;
+            margin: auto;
+        }
+
+    </style>
+</head>
+<body>
+<div class="navbar navbar-dark bg-dark">
+    <div class="container-md">
+        <a class="navbar-brand" th:onclick="|location.href='@{/}'|">Home</a>
+        <form th:action="@{/logout}" method="post">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-primary" th:onclick="|location.href='login.html'|" type="submit">sign out</button>
+            </div>
+        </form>
+    </div>
+</div>
+<form class="input-text">
+<!--    1번버튼-->
+    <div class="col-auto">
+        <label for="temp1" class="visually-hidden">temp</label>
+        <input type="text" readonly class="form-control-plaintext" id="temp1" value="온도" disabled>
+        <button type="submit" class="input-button btn btn-primary mb-3">온도 측정</button>
+    </div>
+</form>
+<form class="margin-button">
+<!--    2번 버튼-->
+    <div class="col-auto">
+        <label for="temp2" class="visually-hidden">temp</label>
+        <input type="text" readonly class="form-control-plaintext" id="temp2" value="온도2" disabled>
+        <button type="submit" class="input-button btn btn-primary mb-3">온도 측정</button>
+    </div>
+</form>
+<form class="margin-button">
+<!--    3번 버튼-->
+    <div class="col-auto">
+        <label for="temp3" class="visually-hidden">Email</label>
+        <input type="text" readonly class="form-control-plaintext" id="temp3" value="온도3" disabled>
+        <button type="submit" class="input-button btn btn-primary mb-3">온도 측정</button>
+    </div>
+</form>
+</body>
+</html>
