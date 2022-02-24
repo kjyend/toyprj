@@ -23,6 +23,7 @@ public class MemberRepository {
     }
 
     public Member findById(Long id){
+
         return store.get(id);
     }
 

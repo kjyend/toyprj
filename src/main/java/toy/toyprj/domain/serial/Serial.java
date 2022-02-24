@@ -5,12 +5,15 @@ import gnu.io.CommPortIdentifier;
 import gnu.io.SerialPort;
 
 
-public class Serial {
-    void connect(String port)
+import java.io.InputStream;
+import java.io.OutputStream;
+
+public class Serial
+{
+    public void connect(String port)
     {
         CommPort commPort = null;
         SerialPort serialPort = null;
-
 
         try
         {
@@ -39,9 +42,14 @@ public class Serial {
                             SerialPort.PARITY_NONE);	//	오류제어 비트
                 }
                 System.out.println("comport성공");
+
+                InputStream in = serialPort.getInputStream();
+                OutputStream out = serialPort.getOutputStream();
+
+                (new Thread(new SerialRead(in))).start();
+                new Thread(new SerialWrite(out)).start();
             }
         }	//	end try
         catch(Exception e) {}
     }
 }
-
