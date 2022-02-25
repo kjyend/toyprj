@@ -13,7 +13,7 @@ public class SerialView {
         this.viewPath = viewPath;
     }
 
-    public void service(HttpServletRequest request, HttpServletResponse response)
+    public void process(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
         dispatcher.forward(request, response);

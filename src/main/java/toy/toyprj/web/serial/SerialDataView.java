@@ -14,7 +14,7 @@ public class SerialDataView {
         this.viewPath = viewPath;
     }
 
-    public void service(HttpServletRequest request, HttpServletResponse response)
+    public void process(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String data = request.getParameter(viewPath);//data였음
         ServletContext app = request.getServletContext();
