@@ -8,8 +8,7 @@ import gnu.io.SerialPort;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-public class Serial
-{
+public class Serial {
     public void connect(String port)
     {
         CommPort commPort = null;
@@ -18,16 +17,13 @@ public class Serial
         try
         {
             CommPortIdentifier com = CommPortIdentifier.getPortIdentifier(port);
-
             //	com포트를 확인하는 작업
             if (com.isCurrentlyOwned())
                 System.out.println("Error : "+port +"포트를 사용중입니다.");
-
                 //	포트가 열려있으면
             else
             {
                 commPort = com.open(this.getClass().getName(),2000);
-
                 //	획득한 포트를 객체가 사용할 수 있는지 여부 확인
                 if (commPort instanceof SerialPort)	//	commPort가 SerialPort로 사용할 수 있는지 확인
                 {

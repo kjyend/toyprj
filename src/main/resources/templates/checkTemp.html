@@ -41,10 +41,9 @@
     <form class="input-text">
     <!--    1번버튼-->
         <div class="col-auto">
-            <label for="temp1" class="data" t>temp</label>
-            <input type="text" readonly class="data form-control-plaintext" id="temp1" th:value="*{data}" disabled>
-            <button type="submit" class="input-button btn btn-primary mb-3" th:onclick="|location.href='/serial'|">온도측정</button>
-
+            <label for="temp1" class="visually-hidden" >temp</label>
+            <input type="text" readonly class="data form-control-plaintext" id="temp1" value="온도" disabled>
+            <button type="submit" class="input-button btn btn-primary mb-3" >온도측정</button>
         </div>
     </form>
     <form class="margin-button">

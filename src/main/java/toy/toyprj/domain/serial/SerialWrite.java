@@ -2,6 +2,7 @@ package toy.toyprj.domain.serial;
 import java.io.IOException;
 import java.io.OutputStream;
 public class SerialWrite implements Runnable {
+
     private final OutputStream out;
 
     public SerialWrite(OutputStream out) {this.out = out;}

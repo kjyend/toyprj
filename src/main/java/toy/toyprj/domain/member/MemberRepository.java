@@ -22,20 +22,11 @@ public class MemberRepository {
         return member;
     }
 
-    public Member findById(Long id){
-
-        return store.get(id);
-    }
-
     public Optional<Member> findByLoginId(String loginId){
         return findAll().stream().filter(m->m.getLoginId().equals(loginId)).findFirst();
     }
 
     private List<Member> findAll() {
         return new ArrayList<>(store.values());
-    }
-
-    public void clearStore(){
-        store.clear();
     }
 }
