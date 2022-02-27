@@ -1,11 +1,13 @@
 package toy.toyprj.domain.serial;
+import lombok.RequiredArgsConstructor;
+
 import java.io.IOException;
 import java.io.OutputStream;
+
+@RequiredArgsConstructor
 public class SerialWrite implements Runnable {
 
     private final OutputStream out;
-
-    public SerialWrite(OutputStream out) {this.out = out;}
 
     @Override
     public void run()

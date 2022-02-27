@@ -2,7 +2,7 @@ package toy.toyprj;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import toy.toyprj.domain.serial.Serial;
+import toy.toyprj.domain.serial.SerialService;
 
 @SpringBootApplication
 public class ToyprjApplication {
@@ -11,7 +11,7 @@ public class ToyprjApplication {
 		SpringApplication.run(ToyprjApplication.class, args);
 		//아두이노 연동
 		try {
-			(new Serial()).connect("COM6");
+			(new SerialService()).connect("COM6");
 		}
 		catch(Exception e)
 		{

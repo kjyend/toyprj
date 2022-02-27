@@ -1,15 +1,17 @@
 package toy.toyprj.domain.serial;
 
+import lombok.RequiredArgsConstructor;
+
 import java.io.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+@RequiredArgsConstructor
 public class SerialRead implements Runnable {
-    private final InputStream in;
 
-    public SerialRead(InputStream in){this.in = in;}
+    private final InputStream in;
 
     @Override
     public void run()
