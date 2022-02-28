@@ -3,26 +3,24 @@ package toy.toyprj.web.serial;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import toy.toyprj.domain.serial.Serial;
-import toy.toyprj.domain.serial.SerialRepository;
 import toy.toyprj.domain.serial.SerialService;
-
-
-import java.util.Map;
+import toy.toyprj.domain.serial.SerialRepository;
 
 
 @Controller
 @RequiredArgsConstructor
 public class SerialController{
 
-    private final SerialRepository serialRepository;
-    private final SerialService serialService;
-    
+    private final SerialService serialRepository;
+    private final SerialRepository serialService;
+
+
+    @PostMapping("/checkTemp")
     public String process(@ModelAttribute("Serial") Serial serial) {
-        return serialRepository.serialReceive("일단 값이 필요");
+        return serialRepository.serialReceive(serial);
     }
 
 /*
