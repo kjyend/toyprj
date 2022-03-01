@@ -2,6 +2,7 @@ package toy.toyprj.domain.serial;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 
@@ -9,11 +10,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 @RequiredArgsConstructor
 public class SerialService {
 
-    public String serialReceive(@ModelAttribute Serial serial) {
+    public void serialReceive(@ModelAttribute Model model) {
+        try {
+            model.addAttribute((new SerialRepository()).connect("COM6"));
+            //port받고 실행하는것 - temp로 받아야할듯, 쏠때 고민
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 /*        String data = request.("data");
         ServletContext app = request.getServletContext();
         app.setAttribute("data", data);*/
-        return "serial";
     }
 //    public String serialPass(@RequestBody String messageBody) throws ServletException, IOException {
 //        RequestDispatcher dispatcher = request.getRequestDispatcher("checkTemp");

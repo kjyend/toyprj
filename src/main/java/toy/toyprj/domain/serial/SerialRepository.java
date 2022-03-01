@@ -11,7 +11,9 @@ import java.net.URL;
 
 @Repository
 public class SerialRepository {
-    public void connect(String port)
+
+
+    public String connect(String port)
     {
         CommPort commPort = null;
         SerialPort serialPort = null;
@@ -48,9 +50,12 @@ public class SerialRepository {
                 new Thread(new SerialWrite(out)).start();
             }
         }	//	end try
-        catch(Exception e) {}
+        catch(Exception e) {
+        }
+        //여기부분 교체해야한다.포트 받아야함
+        return port;
     }
-
+        //데이터 받기
     public class SerialRead implements Runnable {
 
         private final InputStream in;
@@ -72,7 +77,7 @@ public class SerialRepository {
                     //	들어온 데이터가 있는 경우에만 동작을 한다.
                     if (len != 0) {
                         //	데이터를 url 형태로 변형시킨다. s가 데이터이다.
-                        String targetURL = "http://localhost:9090/serialdata?data=" + s;
+                        String targetURL = "http://localhost:9090/result?data=" + s;
                         URL url = new URL(targetURL);    //	URL은 String클래스와 비슷하나, 파싱까지 해준다.
 
                         try {
@@ -84,11 +89,9 @@ public class SerialRepository {
 
                             while ((temp = br.readLine()) != null) {
                             }
-
                             br.close();
                             conn.disconnect();
-                        } catch (Exception e) {
-                        }
+                        } catch (Exception e) {}
                     }
                 }
             } catch (IOException e) {
@@ -98,13 +101,10 @@ public class SerialRepository {
     }
 
     public class SerialWrite implements Runnable {
-
         private final OutputStream out;
-
         public SerialWrite(OutputStream out) {
             this.out = out;
         }
-
         @Override
         public void run()
         {

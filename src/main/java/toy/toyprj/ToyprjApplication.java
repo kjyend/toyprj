@@ -9,14 +9,6 @@ public class ToyprjApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ToyprjApplication.class, args);
-		//아두이노 연동
-		try {
-			(new SerialRepository()).connect("COM6");
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
 	}
 
 }

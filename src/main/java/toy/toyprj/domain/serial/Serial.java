@@ -8,5 +8,5 @@ import javax.validation.constraints.NotEmpty;
 public class Serial {
 
     @NotEmpty
-    private String id;
+    private String name;//소켓이름
 }

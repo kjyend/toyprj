@@ -37,25 +37,25 @@
         </form>
     </div>
 </div>
-<div th:object="${serial}" method="post">
-    <form class="input-text">
+<div>
+    <form class="input-text" th:action="@{/result}" method="post">
     <!--    1번버튼-->
         <div class="col-auto">
-            <input type="text" readonly class="data form-control-plaintext" id="temp1" value="0" disabled>
-            <button type="submit" class="input-button btn btn-primary mb-3" >온도측정</button>
+            <input type="text" readonly class="data form-control-plaintext" id="temp1" disabled>
+            <button type="submit" class="input-button btn btn-primary mb-3" th:onclick="|location.href='result.html'|">온도측정</button>
         </div>
     </form>
-    <form class="margin-button">
+    <form class="margin-button" th:action="@{/result}" method="post">
     <!--    2번 버튼-->
         <div class="col-auto">
-            <input type="text" readonly class="form-control-plaintext" id="temp2" value="0" disabled>
+            <input type="text" readonly class="form-control-plaintext" id="temp2" disabled>
             <button type="submit" class="input-button btn btn-primary mb-3">온도 측정</button>
         </div>
     </form>
     <form class="margin-button">
     <!--    3번 버튼-->
         <div class="col-auto">
-            <input type="text" readonly class="form-control-plaintext" id="temp3" value="0" disabled>
+            <input type="text" readonly class="form-control-plaintext" id="temp3"disabled>
             <button type="submit" class="input-button btn btn-primary mb-3">온도 측정</button>
         </div>
     </form>

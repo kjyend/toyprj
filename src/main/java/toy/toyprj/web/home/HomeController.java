@@ -13,7 +13,7 @@ public class HomeController {
 
 
     @GetMapping("/")
-    public String checkTemp(@SessionAttribute(name="loginMember",required = false) Member loginMember, Model model) {
+    public String home(@SessionAttribute(name="loginMember",required = false) Member loginMember, Model model) {
         if(loginMember==null){
             return "home";
         }
