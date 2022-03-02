@@ -6,8 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import toy.toyprj.domain.serial.Serial;
-import toy.toyprj.domain.serial.SerialService;
 import toy.toyprj.domain.serial.SerialRepository;
 
 
@@ -15,7 +13,7 @@ import toy.toyprj.domain.serial.SerialRepository;
 @RequiredArgsConstructor
 public class SerialController{
 
-    private final SerialService serialService; //사용
+/*    private final SerialService serialService; //사용*/
 
     @PostMapping("/result")
     public String result(@ModelAttribute("model") Model model) {
@@ -26,11 +24,5 @@ public class SerialController{
         }
         return "result";
     }
-
-/*
-    public String processData(Map<String, String> paramMap) {
-        return serialRepository.serialPass("/checkTemp");
-    }
-*/
 
 }
