@@ -1,13 +1,18 @@
 package toy.toyprj.domain.serial;
 
 import gnu.io.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Service
+@Slf4j
 public class SerialService {
 
+    private static Map<Long, Serial> temp=new ConcurrentHashMap<>();
 
     public void connect(String port) throws NoSuchPortException, PortInUseException, UnsupportedCommOperationException, IOException {
         CommPort commPort = null;
@@ -32,11 +37,15 @@ public class SerialService {
                         SerialPort.PARITY_NONE);    //	오류제어 비트
             }
             System.out.println("comport성공");
-
+            byte[] buffer = new byte[1024];
             InputStream in = serialPort.getInputStream();
-            //OutputStream out = serialPort.getOutputStream();
+            int read = in.read(buffer);
+            log.info("read={}",read);
+            OutputStream out = serialPort.getOutputStream();
+
             (new Thread(new SerialRead(in))).start();
-            //new Thread(new SerialWrite(out)).start();
+            new Thread(new SerialWrite(out)).start();
+
         }
     }
 }

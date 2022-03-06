@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import toy.toyprj.domain.serial.Serial;
 import toy.toyprj.domain.serial.SerialService;
 
 
@@ -14,14 +15,17 @@ import toy.toyprj.domain.serial.SerialService;
 @RequiredArgsConstructor
 public class SerialController{
 
-/*    private final SerialService serialService; //사용*/
-
     @PostMapping("/result")
-    public String result(@ModelAttribute("model") Model model) throws Exception{
+    public String result(@ModelAttribute("serial") Serial serial) throws Exception{
+        try {
+            (new SerialService()).connect("COM5");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return "result";
     }
     @GetMapping("/result")
-    public String result1(@ModelAttribute("model") Model model) throws Exception{
+    public String result1(@ModelAttribute("serial") Serial serial) throws Exception{
         return "result";
     }
 
