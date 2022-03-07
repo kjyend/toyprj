@@ -9,7 +9,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Service
-@Slf4j
 public class SerialService {
 
     private static Map<Long, Serial> temp=new ConcurrentHashMap<>();
@@ -36,11 +35,8 @@ public class SerialService {
                         SerialPort.STOPBITS_1,
                         SerialPort.PARITY_NONE);    //	오류제어 비트
             }
-            System.out.println("comport성공");
-            byte[] buffer = new byte[1024];
+
             InputStream in = serialPort.getInputStream();
-            int read = in.read(buffer);
-            log.info("read={}",read);
             OutputStream out = serialPort.getOutputStream();
 
             (new Thread(new SerialRead(in))).start();

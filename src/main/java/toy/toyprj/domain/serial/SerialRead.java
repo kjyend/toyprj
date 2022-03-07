@@ -35,7 +35,7 @@ public class SerialRead implements Runnable {
                     HttpURLConnection conn = null;
                     if (len != 0) {
                         //	데이터를 url 형태로 변형시킨다. s가 데이터이다.
-                        String targetURL = "http://localhost:8080/result?data=" + s;
+                        String targetURL = "http://localhost:8080/result?data=" + s;//흐음
                         URL url = new URL(targetURL);
                         try {
                             //	http에 접속
