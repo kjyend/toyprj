@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Service
+@Slf4j
 public class SerialService {
 
     private static Map<Long, Serial> temp=new ConcurrentHashMap<>();
@@ -38,9 +39,11 @@ public class SerialService {
 
             InputStream in = serialPort.getInputStream();
             OutputStream out = serialPort.getOutputStream();
-
+            log.info("s={}",out);
             (new Thread(new SerialRead(in))).start();
+            log.info("e={}",new Thread(new SerialRead(in)));
             new Thread(new SerialWrite(out)).start();
+            log.info("end={}",new Thread(new SerialWrite(out)));
 
         }
     }

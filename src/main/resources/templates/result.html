@@ -28,8 +28,8 @@
     </div>
 </div>
 <div>
-    <form class="input-text">
-        <p th:text="${serial}">error</p>
+    <form class="input-text" th:object="${serial}"><!--여기부분-->
+        <p th:field="${serial}">error</p>
     </form>
 </div>
 </body>
