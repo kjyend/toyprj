@@ -26,30 +26,28 @@ public class SerialRead implements Runnable {
     public void run() {
         byte[] buffer = new byte[1024];
         int len = -1;
+        String s="";
         try {
             String receivedData="";
             while ((len = this.in.read(buffer)) >-1 ) {
-                    String s = new String(buffer, 0, len);
-                    HttpURLConnection conn = null;
-                    if (len != 0) {
-                        //	데이터를 url 형태로 변형시킨다. s가 데이터이다.
-                        String targetURL = "http://localhost:8080/result?data=" + s;//흐음      String targetURL = "http://localhost:8080/result?data=" + s;
-                        URL url = new URL(targetURL);
-                        try {
-
-                            //	http에 접속
-                            conn = (HttpURLConnection) url.openConnection();    //	소켓을 열겠다는 요청
-                            //	스트림을 통해 데이터를 받는다.
-                            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                            String temp = null;
-                            while ((temp = br.readLine()) != null) {
-                            }
-                            br.close();
-                            conn.disconnect();
-                        } catch (Exception e) {}
-
+                s += new String(buffer, 0, len);
+                log.info("len1={}",len);
+                log.info("s={}",s);
+                if (s.length()>=18) {
+                    if(s.charAt(0)!='*' || s.length()>=25){//문자열자르기 생각
+                        s="";
                     }
+                    log.info("len2={}", s);
+                    s="";
+                    try {
+                        //
+                    } catch (Exception e) {}
                 }
+/*                if(s.length()>18){
+                    log.info("len55");
+                    s="";
+                }*/
+            }
 
         } catch (IOException e) {
             e.printStackTrace();
