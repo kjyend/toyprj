@@ -23,6 +23,7 @@ public class SerialController{
     }
     @GetMapping("/result")
     public String result1(@ModelAttribute("serial") Serial serial) throws Exception{
+        log.info("serial={}",serial.getTempCheck());
         return "result";
     }
 
