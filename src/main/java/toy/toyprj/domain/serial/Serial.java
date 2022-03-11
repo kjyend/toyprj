@@ -1,12 +1,19 @@
 package toy.toyprj.domain.serial;
 
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
-import javax.validation.constraints.NotEmpty;
 
 @Data
+@Component
 public class Serial {
-    @NotEmpty
+
     private String tempCheck;
 
+    public Serial() {
+    }
+
+    public Serial(String tempCheck) {
+        this.tempCheck = tempCheck;
+    }
 }

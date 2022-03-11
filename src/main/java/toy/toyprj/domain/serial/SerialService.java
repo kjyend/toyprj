@@ -22,13 +22,10 @@ public class SerialService {
         }
         else {
             commPort = com.open(this.getClass().getName(), 2000);
-            //	획득한 포트를 객체가 사용할 수 있는지 여부 확인
             if (commPort instanceof SerialPort)    //	commPort가 SerialPort로 사용할 수 있는지 확인
             {
                 serialPort = (SerialPort) commPort;
 
-                //	정상적으로 포트를 사용할 수 있을 경우
-                //	포트에 필요한 정보를 입력해 준다.
                 serialPort.setSerialPortParams(
                         9600,                        //	바운드레이트
                         SerialPort.DATABITS_8,

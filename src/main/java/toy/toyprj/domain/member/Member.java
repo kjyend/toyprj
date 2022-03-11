@@ -1,8 +1,6 @@
 package toy.toyprj.domain.member;
 
-import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
 import javax.validation.constraints.NotEmpty;
 

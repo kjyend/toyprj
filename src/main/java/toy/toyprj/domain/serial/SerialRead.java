@@ -13,9 +13,11 @@ import java.io.InputStream;
 public class SerialRead implements Runnable {
 
     private final InputStream in;
-
+    private final SerialRepository serialRepository;
+    private static Serial temp;
     public SerialRead(InputStream in) {
         this.in = in;
+        serialRepository = new SerialRepository();
     }
 
     @Override
@@ -30,10 +32,11 @@ public class SerialRead implements Runnable {
                 if (s.length()>=18) {
                     if(s.charAt(0)!='*' || s.length()>=25){//문자열자르기 생각
                         s="";
+                        continue;
                     }
-                    log.info("1234=4321");
+                    serialRepository.save(s);
+                    serialRepository.receive();
                     try {
-                        log.info("1234=1234");
                         s="";
                     } catch (Exception e) {}
                 }
