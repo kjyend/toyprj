@@ -1,16 +1,13 @@
 package toy.toyprj.domain.serial;
 
 import gnu.io.*;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.stereotype.Service;
 
 import java.io.*;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+
 
 @Service
-@Slf4j
 public class SerialService {
 
     public void connect(String port) throws NoSuchPortException, PortInUseException, UnsupportedCommOperationException, IOException {
