@@ -20,7 +20,7 @@ public class MemberController {
     private final MemberRepository memberRepository;
 
     @GetMapping
-    public String signupFrom(@ModelAttribute("member") Member member){
+    public String signupForm(@ModelAttribute("member") Member member){
         return "member/signup";
     }
 

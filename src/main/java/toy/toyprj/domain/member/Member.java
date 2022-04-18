@@ -16,6 +16,6 @@ public class Member {
     @NotEmpty
     private String name;//이름
     @NotEmpty
-    private String password;
+    private String password; //패스워드
 
 }

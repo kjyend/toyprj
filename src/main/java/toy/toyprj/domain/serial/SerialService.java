@@ -21,7 +21,7 @@ public class SerialService {
             commPort = com.open(this.getClass().getName(), 2000);
             if (commPort instanceof SerialPort)    //	commPort가 SerialPort로 사용할 수 있는지 확인
             {
-                serialPort = (SerialPort) commPort;
+                serialPort = (SerialPort) commPort; //시리얼 포트
 
                 serialPort.setSerialPortParams(
                         9600,                        //	바운드레이트

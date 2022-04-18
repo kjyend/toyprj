@@ -19,6 +19,4 @@ public class SerialController{
         serial.setTempCheck(serialRepository.receive());
         return "result";
     }
-
-
 }

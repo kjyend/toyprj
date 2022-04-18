@@ -13,7 +13,7 @@ public class Serial {
     public Serial() {
     }
 
-    public Serial(String tempCheck) {
+    public Serial(String tempCheck) { //온도 값을 저장한다.
         this.tempCheck = tempCheck;
     }
 }
